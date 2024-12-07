@@ -11,5 +11,10 @@
 		<string>Louize-BoldItalic.ttf</string>
 		<string>Louize-Bold.ttf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>Wisteria</string>
+	</dict>
 </dict>
 </plist>

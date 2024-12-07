@@ -8,42 +8,54 @@
 import SwiftUI
 
 struct MoodTrackerView: View {
-    
-    @State private var isPulsing = true
+    @ObservedObject var moodViewModel: MoodViewModel
+    @State private var showMoodSelection = false
     
     var body: some View {
         VStack {
-            // Title Text
-            HStack {
-                Text("Colorée")
-                    .font(.custom("Louize-MediumItalic", size: 50))
-                    .font(.title)
-                    .padding(.top, 40)
-                Spacer()
-            }
-            .padding(.leading, 25)
-            
             Spacer()
-            
-            // Mood Bubble
             ZStack {
                 Circle()
-                    .blur(radius: 200)
-                    .padding(80)
-                
-                Circle()
-                    .padding(80)
-            }
-            .padding(.bottom, 40)
-            .onAppear {
-                isPulsing = true
-            }
-            
+                    .fill(moodViewModel.currentMood.foregroundColor)
+                    .frame(width: 200, height: 200)
+                    .glow()
+                }
+                .onLongPressGesture(minimumDuration: 0.5) {
+                    showMoodSelection = true
+                }
             Spacer()
+        }
+        .confirmationDialog("Select Mood", isPresented: $showMoodSelection) {
+            ForEach(MoodType.allCases, id: \.self) { mood in
+                Button(mood.rawValue.capitalized) {
+                    moodViewModel.addEntry(mood: mood)
+                }
+            }
         }
     }
 }
 
-#Preview {
-    MoodTrackerView()
+struct Glow: ViewModifier {
+    @State private var throb = false
+
+    func body(content: Content) -> some View {
+        ZStack {
+            content
+                .blur(radius: throb ? 20 : 15) // Animate between two blur values
+                .animation(
+                    Animation.easeInOut(duration: 5.0).repeatForever(autoreverses: true),
+                    value: throb
+                )
+                .onAppear {
+                    throb = true
+                }
+        }
+    }
 }
+
+extension View {
+    func glow() -> some View {
+        modifier(Glow())
+    }
+}
+

@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct LogbookView: View {
+    @ObservedObject var moodViewModel: MoodViewModel
+    
     var body: some View {
-        VStack {
-            // Title Text
-            HStack {
-                Text("Logbook")
-                    .font(.custom("Louize-MediumItalic", size: 50))
-                    .font(.title)
-                    .padding(.top, 40)
-                Spacer()
+        List {
+            ForEach(moodViewModel.entries, id: \.id) { entry in
+                VStack(alignment: .leading) {
+                    Text(entry.mood.rawValue.capitalized)
+                        .foregroundColor(entry.mood.foregroundColor)
+                    Text("\(entry.timestamp, format: .dateTime.year().month().day().hour().minute())")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                .listRowBackground(moodViewModel.currentMood.backgroundColor)
             }
-            .padding(.leading, 25)
-            
-            Spacer()
         }
+        .scrollContentBackground(.hidden)
+        .background(moodViewModel.currentMood.backgroundColor)
     }
-}
-
-#Preview {
-    LogbookView()
 }

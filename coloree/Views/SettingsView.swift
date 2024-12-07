@@ -8,24 +8,17 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var moodViewModel: MoodViewModel
+    
+    // Example state for notifications slider
+    @State private var notificationLevel: Double = 0.5
+    
     var body: some View {
         VStack {
-            // Title Text
-            HStack {
-                Text("Settings")
-                    .font(.custom("Louize-MediumItalic", size: 50))
-                    .font(.title)
-                    .padding(.top, 40)
-                Spacer()
-            }
-            .padding(.leading, 25)
-            
-            Spacer()
             
         }
+        .padding()
+        .foregroundColor(moodViewModel.currentMood.foregroundColor)
+        .background(moodViewModel.currentMood.backgroundColor.ignoresSafeArea())
     }
-}
-
-#Preview {
-    SettingsView()
 }

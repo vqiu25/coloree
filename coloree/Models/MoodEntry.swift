@@ -7,16 +7,17 @@
 
 import SwiftData
 import Foundation
+import SwiftUI
 
 @Model
 class MoodEntry {
     @Attribute(.unique) var id: UUID
-    var date: Date
+    var timestamp: Date
     var mood: MoodType
     
     init(mood: MoodType) {
         self.id = UUID();
-        self.date = Date();
+        self.timestamp = Date();
         self.mood = mood;
     }
 }
@@ -27,4 +28,24 @@ enum MoodType: String, Codable, CaseIterable {
     case ok
     case hopeful
     case joyful
+    
+    var foregroundColor: Color {
+        switch self {
+        case .frustrated: return Color("Salmon")
+        case .broken: return Color("Sky")
+        case .ok: return Color("Lavendar")
+        case .hopeful: return Color("Seafoam")
+        case .joyful: return Color("Tangerine")
+        }
+    }
+    
+    var backgroundColor: Color {
+        switch self {
+        case .frustrated: return Color("Light Salmon")
+        case .broken: return Color("Light Sky")
+        case .ok: return Color("Wisteria")
+        case .hopeful: return Color("Light Seafoam")
+        case .joyful: return Color("Light Tangerine")
+        }
+    }
 }

@@ -12,8 +12,8 @@ import SwiftData
 struct coloreeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .modelContainer(for: [MoodEntry.self])
+            RootView()
         }
+        .modelContainer(for: [MoodEntry.self])
     }
 }
