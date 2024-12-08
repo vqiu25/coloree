@@ -22,3 +22,7 @@ The app features:
 <p align="center">
   <img width="800" alt="hyacinth-logo" src="https://github.com/user-attachments/assets/daf5eb75-ad8e-4f23-8e1c-4d3470883c4d">
 </p>
+
+# Video
+
+https://github.com/user-attachments/assets/8a3a2338-1297-4099-b435-4f8e856f3f70
