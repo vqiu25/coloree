@@ -43,6 +43,7 @@ struct CustomTabBar: View {
                 }
             }
             .frame(height: 60)
+            .frame(width: UIScreen.main.bounds.width * 0.6, height: 60) 
             .background(
                 moodViewModel.currentMood.backgroundColor == Color("Wisteria")
                 ? moodViewModel.currentMood.backgroundColor

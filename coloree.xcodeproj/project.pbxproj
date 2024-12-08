@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EBC334A02D03EF13001D6124 /* coloree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coloree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC334A02D03EF13001D6124 /* Colorée.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colorée.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC334B22D03EF14001D6124 /* coloreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coloreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC334BC2D03EF14001D6124 /* coloreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coloreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 		EBC334A12D03EF13001D6124 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBC334A02D03EF13001D6124 /* coloree.app */,
+				EBC334A02D03EF13001D6124 /* Colorée.app */,
 				EBC334B22D03EF14001D6124 /* coloreeTests.xctest */,
 				EBC334BC2D03EF14001D6124 /* coloreeUITests.xctest */,
 			);
@@ -127,7 +127,7 @@
 			packageProductDependencies = (
 			);
 			productName = coloree;
-			productReference = EBC334A02D03EF13001D6124 /* coloree.app */;
+			productReference = EBC334A02D03EF13001D6124 /* Colorée.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EBC334B12D03EF14001D6124 /* coloreeTests */ = {
@@ -424,7 +424,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = esther.coloree;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Colorée";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -454,7 +454,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = esther.coloree;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Colorée";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

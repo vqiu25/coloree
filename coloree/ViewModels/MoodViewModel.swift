@@ -14,7 +14,13 @@ class MoodViewModel: ObservableObject {
     @Published var entries: [MoodEntry] = []
     
     var context: ModelContext
-    
+
+    // A simple struct to hold counts per mood
+    struct MoodCount {
+        let mood: MoodType
+        let count: Int
+    }
+
     init(context: ModelContext) {
         self.context = context
         loadEntries()
@@ -35,5 +41,18 @@ class MoodViewModel: ObservableObject {
         context.insert(newEntry)
         try? context.save()
         loadEntries()
+    }
+
+    // Computed property for total count of entries
+    var totalCount: Int {
+        entries.count
+    }
+
+    // Computed property to get counts of each mood present in entries
+    var moodCounts: [MoodCount] {
+        MoodType.allCases.compactMap { mood in
+            let count = entries.filter { $0.mood == mood }.count
+            return count > 0 ? MoodCount(mood: mood, count: count) : nil
+        }
     }
 }

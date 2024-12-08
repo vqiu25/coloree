@@ -48,4 +48,14 @@ enum MoodType: String, Codable, CaseIterable {
         case .joyful: return Color("Light Tangerine")
         }
     }
+    
+    var iconName: String {
+        switch self {
+        case .frustrated: return "exclamationmark.triangle.fill"
+        case .broken: return "heart.slash.fill"
+        case .ok: return "hand.thumbsup.fill"
+        case .hopeful: return "sparkles"
+        case .joyful: return "face.smiling.fill"
+        }
+    }
 }
